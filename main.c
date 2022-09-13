@@ -91,12 +91,28 @@ int calcularSaldo(){
     scanf("%d", &tempo);
     
     if(tempo == 1){
-        resultado = receitas[mesInput] - despesas[mesInput];
-        printf("Resultado: %d \n", resultado);    
+        for(i =0; i < 12; i++){
+           if(receitas[i] !=0 || despesas[i] != 0){
+               resultado = receitas[i] - despesas[i];
+               printf("Resultado por mês: %d \n", resultado);
+           }
+        }
         encerrar();
     } else if(tempo == 2){
         resultado = (receitas[0] + receitas[1] + receitas[2]) - (despesas[0] + despesas[1] + despesas[2]);
-        printf("Resultado: %d \n", resultado);
+        printf("Resultado trimestre: %d \n", resultado);
+        encerrar();
+    } else if(tempo == 3){
+        int totalDespesa = 0;
+        int totalReceita = 0;
+        
+        for(i =0; i < 12; i++){
+            totalReceita += receitas[i];
+            totalDespesa += despesas[i];
+        }
+        
+        resultado = totalReceita - totalDespesa;
+        printf(printf("Resultado anual: %d \n", resultado);
         encerrar();
     }
     
